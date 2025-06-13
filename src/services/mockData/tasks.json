@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "title": "Complete project proposal",
+    "description": "Finalize the Q4 marketing campaign proposal with budget breakdown and timeline",
+    "dueDate": "2024-12-15T09:00:00Z",
+    "category": "Work",
+    "priority": "high",
+    "status": "pending",
+    "createdAt": "2024-12-10T08:00:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "2",
+    "title": "Review team performance reports",
+    "description": "Go through quarterly performance reviews and prepare feedback sessions",
+    "dueDate": "2024-12-14T17:00:00Z",
+    "category": "Work",
+    "priority": "medium",
+    "status": "pending",
+    "createdAt": "2024-12-09T10:30:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "3",
+    "title": "Grocery shopping for weekend",
+    "description": "Buy ingredients for Sunday dinner party - vegetables, wine, dessert",
+    "dueDate": "2024-12-13T15:00:00Z",
+    "category": "Personal",
+    "priority": "low",
+    "status": "completed",
+    "createdAt": "2024-12-11T12:00:00Z",
+    "completedAt": "2024-12-12T14:30:00Z"
+  },
+  {
+    "id": "4",
+    "title": "Schedule annual health checkup",
+    "description": "Book appointment with Dr. Smith for routine physical examination",
+    "dueDate": "2024-12-20T10:00:00Z",
+    "category": "Health",
+    "priority": "medium",
+    "status": "pending",
+    "createdAt": "2024-12-08T16:15:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "5",
+    "title": "Update portfolio website",
+    "description": "Add recent projects and refresh the design with new color scheme",
+    "dueDate": "2024-12-18T12:00:00Z",
+    "category": "Personal",
+    "priority": "high",
+    "status": "pending",
+    "createdAt": "2024-12-07T09:45:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "6",
+    "title": "Pay monthly bills",
+    "description": "Utilities, internet, phone, and credit card payments",
+    "dueDate": "2024-12-12T23:59:00Z",
+    "category": "Finance",
+    "priority": "high",
+    "status": "completed",
+    "createdAt": "2024-12-05T11:20:00Z",
+    "completedAt": "2024-12-11T19:15:00Z"
+  },
+  {
+    "id": "7",
+    "title": "Plan holiday vacation",
+    "description": "Research destinations, book flights and accommodations for Christmas break",
+    "dueDate": "2024-12-16T18:00:00Z",
+    "category": "Personal",
+    "priority": "medium",
+    "status": "pending",
+    "createdAt": "2024-12-06T14:30:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "8",
+    "title": "Client presentation preparation",
+    "description": "Create slides for the new product launch presentation to ABC Corp",
+    "dueDate": "2024-12-17T14:00:00Z",
+    "category": "Work",
+    "priority": "high",
+    "status": "pending",
+    "createdAt": "2024-12-04T13:10:00Z",
+    "completedAt": null
+  }
+]
