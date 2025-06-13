@@ -148,104 +148,104 @@ const HomePage = () => {
   };
 
   if (loading) {
-    return (
-      &lt;div className="h-full p-6">
-        &lt;div className="max-w-6xl mx-auto">
-          &lt;div className="space-y-4">
+return (
+      <div className="h-full p-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-4">
             {[...Array(5)].map((_, i) => (
-              &lt;motion.div
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 className="bg-white rounded-lg p-6 shadow-sm border border-surface-200"
               >
-                &lt;div className="animate-pulse space-y-3">
-                  &lt;div className="h-4 bg-surface-200 rounded w-3/4">&lt;/div>
-                  &lt;div className="h-3 bg-surface-200 rounded w-1/2">&lt;/div>
-                  &lt;div className="flex gap-2">
-                    &lt;div className="h-6 bg-surface-200 rounded-full w-16">&lt;/div>
-                    &lt;div className="h-6 bg-surface-200 rounded-full w-20">&lt;/div>
-                  &lt;/div>
-                &lt;/div>
-              &lt;/motion.div>
+                <div className="animate-pulse space-y-3">
+                  <div className="h-4 bg-surface-200 rounded w-3/4"></div>
+                  <div className="h-3 bg-surface-200 rounded w-1/2"></div>
+                  <div className="flex gap-2">
+                    <div className="h-6 bg-surface-200 rounded-full w-16"></div>
+                    <div className="h-6 bg-surface-200 rounded-full w-20"></div>
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          &lt;/div>
-        &lt;/div>
-      &lt;/div>
+          </div>
+        </div>
+      </div>
     );
   }
 
   if (error) {
-    return &lt;ErrorState message={error} onRetry={loadTasks} title="Failed to Load Tasks" />;
+    return <ErrorState message={error} onRetry={loadTasks} title="Failed to Load Tasks" />;
   }
 
   return (
-    &lt;div className="h-full flex overflow-hidden max-w-full">
-      &lt;div className="hidden lg:block">
-        &lt;FilterSidebar
+    <div className="h-full flex overflow-hidden max-w-full">
+      <div className="hidden lg:block">
+        <FilterSidebar
           filters={filters}
           onFiltersChange={setFilters}
           tasks={tasks}
         />
-      &lt;/div>
+      </div>
 
-      &lt;AnimatePresence>
+      <AnimatePresence>
         {isFilterOpen && (
-          &lt;>
-            &lt;motion.div
+          <>
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="lg:hidden fixed inset-0 bg-black/20 z-40"
               onClick={() => setIsFilterOpen(false)}
             />
-            &lt;motion.div
+            <motion.div
               initial={{ opacity: 0, x: -300 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -300 }}
               className="lg:hidden fixed left-0 top-0 bottom-0 z-50"
             >
-              &lt;FilterSidebar
+              <FilterSidebar
                 filters={filters}
                 onFiltersChange={setFilters}
                 tasks={tasks}
                 onClose={() => setIsFilterOpen(false)}
               />
-            &lt;/motion.div>
-          &lt;/>
+            </motion.div>
+          </>
         )}
-      &lt;/AnimatePresence>
+      </AnimatePresence>
 
-      &lt;div className="flex-1 overflow-y-auto min-w-0">
-        &lt;div className="p-6 max-w-full">
-          &lt;div className="max-w-4xl mx-auto">
-            &lt;SectionHeader
+      <div className="flex-1 overflow-y-auto min-w-0">
+        <div className="p-6 max-w-full">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeader
               title="My Tasks"
               subtitle={`${filteredTasks.length} ${filteredTasks.length === 1 ? 'task' : 'tasks'}`}
             >
-              &lt;div className="flex items-center gap-3">
-                &lt;Button
+              <div className="flex items-center gap-3">
+                <Button
                   onClick={() => setIsFilterOpen(true)}
                   className="lg:hidden p-2 rounded-lg border border-surface-200 hover:bg-surface-50"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  &lt;ApperIcon name="Filter" size={20} className="text-surface-600" />
-                &lt;/Button>
+                  <ApperIcon name="Filter" size={20} className="text-surface-600" />
+                </Button>
                 
-                &lt;Button
+                <Button
                   onClick={() => setIsModalOpen(true)}
                   className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-sm"
                 >
-                  &lt;ApperIcon name="Plus" size={20} />
-                  &lt;span className="hidden sm:inline">New Task&lt;/span>
-                &lt;/Button>
-              &lt;/div>
-            &lt;/SectionHeader>
+                  <ApperIcon name="Plus" size={20} />
+                  <span className="hidden sm:inline">New Task</span>
+                </Button>
+              </div>
+            </SectionHeader>
 
             {filteredTasks.length === 0 ? (
-              &lt;EmptyState
+              <EmptyState
                 iconName="CheckSquare"
                 title={tasks.length === 0 ? 'No tasks yet' : 'No tasks match your filters'}
                 description={
@@ -257,10 +257,10 @@ const HomePage = () => {
                 onButtonClick={() => setIsModalOpen(true)}
               />
             ) : (
-              &lt;div className="space-y-3">
-                &lt;AnimatePresence>
+              <div className="space-y-3">
+                <AnimatePresence>
                   {filteredTasks.map((task, index) => (
-                    &lt;TaskItem
+                    <TaskItem
                       key={task.id}
                       task={task}
                       onToggleComplete={handleToggleComplete}
@@ -269,20 +269,20 @@ const HomePage = () => {
                       index={index}
                     />
                   ))}
-                &lt;/AnimatePresence>
-              &lt;/div>
+                </AnimatePresence>
+              </div>
             )}
-          &lt;/div>
-        &lt;/div>
-      &lt;/div>
+          </div>
+        </div>
+      </div>
 
-      &lt;TaskModal
+      <TaskModal
         isOpen={isModalOpen}
         onClose={closeModal}
         onSubmit={editingTask ? handleUpdateTask : handleCreateTask}
         task={editingTask}
       />
-    &lt;/div>
+    </div>
   );
 };
 
