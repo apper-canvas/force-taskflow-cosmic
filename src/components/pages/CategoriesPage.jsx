@@ -120,57 +120,57 @@ const CategoriesPage = () => {
   };
 
   if (loading) {
-    return (
-      &lt;div className="h-full p-6">
-        &lt;div className="max-w-4xl mx-auto">
-          &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, i) => (
-              &lt;motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-lg p-6 shadow-sm border border-surface-200"
-              >
-                &lt;div className="animate-pulse space-y-4">
-                  &lt;div className="flex items-center gap-3">
-                    &lt;div className="w-4 h-4 bg-surface-200 rounded-full">&lt;/div>
-                    &lt;div className="h-5 bg-surface-200 rounded w-24">&lt;/div>
-                  &lt;/div>
-                  &lt;div className="h-3 bg-surface-200 rounded w-16">&lt;/div>
-                  &lt;div className="h-2 bg-surface-200 rounded w-full">&lt;/div>
-                &lt;/div>
-              &lt;/motion.div>
-            ))}
-          &lt;/div>
-        &lt;/div>
-      &lt;/div>
-    );
+return (
+    <div className="h-full p-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white rounded-lg p-6 shadow-sm border border-surface-200"
+            >
+              <div className="animate-pulse space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-4 bg-surface-200 rounded-full"></div>
+                  <div className="h-5 bg-surface-200 rounded w-24"></div>
+                </div>
+                <div className="h-3 bg-surface-200 rounded w-16"></div>
+                <div className="h-2 bg-surface-200 rounded w-full"></div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
   }
 
-  if (error) {
-    return &lt;ErrorState message={error} onRetry={loadData} title="Failed to Load Categories" />;
+if (error) {
+    return <ErrorState message={error} onRetry={loadData} title="Failed to Load Categories" />;
   }
 
-  return (
-    &lt;div className="h-full overflow-y-auto">
-      &lt;div className="p-6 max-w-full">
-        &lt;div className="max-w-4xl mx-auto">
-          &lt;SectionHeader
+return (
+    <div className="h-full overflow-y-auto">
+      <div className="p-6 max-w-full">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader
             title="Categories"
             subtitle="Organize your tasks with custom categories"
           >
-            &lt;Button
+            <Button
               onClick={() => setIsModalOpen(true)}
               className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 shadow-sm"
             >
-              &lt;ApperIcon name="Plus" size={20} />
-              &lt;span className="hidden sm:inline">New Category&lt;/span>
-            &lt;/Button>
-          &lt;/SectionHeader>
+              <ApperIcon name="Plus" size={20} />
+              <span className="hidden sm:inline">New Category</span>
+            </Button>
+          </SectionHeader>
 
           {categories.length === 0 ? (
-            &lt;EmptyState
+            <EmptyState
               iconName="Tag"
               title="No categories yet"
               description="Create your first category to organize your tasks"
@@ -178,10 +178,10 @@ const CategoriesPage = () => {
               onButtonClick={() => setIsModalOpen(true)}
             />
           ) : (
-            &lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              &lt;AnimatePresence>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <AnimatePresence>
                 {categories.map((category, index) => (
-                  &lt;CategoryCard
+                  <CategoryCard
                     key={category.id}
                     category={category}
                     taskCount={getCategoryTaskCount(category.name)}
@@ -192,19 +192,19 @@ const CategoriesPage = () => {
                     index={index}
                   />
                 ))}
-              &lt;/AnimatePresence>
-            &lt;/div>
+              </AnimatePresence>
+            </div>
           )}
-        &lt;/div>
-      &lt;/div>
+        </div>
+      </div>
 
-      &lt;CategoryModal
+      <CategoryModal
         isOpen={isModalOpen}
         onClose={closeModal}
         onSubmit={editingCategory ? handleUpdateCategory : handleCreateCategory}
         category={editingCategory}
       />
-    &lt;/div>
+    </div>
   );
 };
 
