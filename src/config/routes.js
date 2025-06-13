@@ -1,6 +1,6 @@
-import Home from '../pages/Home';
-import Calendar from '../pages/Calendar';
-import Categories from '../pages/Categories';
+import HomePage from '@/components/pages/HomePage';
+import CalendarPage from '@/components/pages/CalendarPage';
+import CategoriesPage from '@/components/pages/CategoriesPage';
 
 export const routes = {
   tasks: {
@@ -8,21 +8,21 @@ export const routes = {
     label: 'Tasks',
     path: '/tasks',
     icon: 'CheckSquare',
-    component: Home
+component: HomePage
   },
   calendar: {
     id: 'calendar',
     label: 'Calendar',
     path: '/calendar',
     icon: 'Calendar',
-    component: Calendar
+component: CalendarPage
   },
   categories: {
     id: 'categories',
     label: 'Categories',
     path: '/categories',
     icon: 'Tag',
-    component: Categories
+component: CategoriesPage
   }
 };
 

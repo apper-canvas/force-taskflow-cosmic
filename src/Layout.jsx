@@ -1,7 +1,8 @@
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ApperIcon from './components/ApperIcon';
+import ApperIcon from '@/components/ApperIcon';
+import NavButton from '@/components/molecules/NavButton';
 import { routeArray } from './config/routes';
 
 const Layout = () => {
@@ -13,36 +14,12 @@ const Layout = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const MobileNavButton = ({ route }) => (
-    <NavLink
-      to={route.path}
-      className={({ isActive }) =>
-        `flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-all duration-200 ${
-          isActive 
-            ? 'text-primary bg-primary/5' 
-            : 'text-surface-600 hover:text-primary hover:bg-surface-50'
-        }`
-      }
-    >
-      <ApperIcon name={route.icon} size={20} />
-      <span className="text-xs font-medium">{route.label}</span>
-    </NavLink>
+const MobileNavButton = ({ route }) => (
+    <NavButton route={route} type="mobile" onClick={() => setIsMobileMenuOpen(false)} />
   );
 
   const DesktopNavButton = ({ route }) => (
-    <NavLink
-      to={route.path}
-      className={({ isActive }) =>
-        `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
-          isActive 
-            ? 'text-primary bg-primary/5 font-medium' 
-            : 'text-surface-700 hover:text-primary hover:bg-surface-50'
-        }`
-      }
-    >
-      <ApperIcon name={route.icon} size={20} />
-      {route.label}
-    </NavLink>
+    <NavButton route={route} type="desktop" />
   );
 
   return (
