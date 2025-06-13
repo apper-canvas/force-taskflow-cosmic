@@ -79,9 +79,9 @@ const CategoryForm = ({ onSubmit, category, loading }) => {
     });
   };
 
-  return (
-    &lt;form onSubmit={handleSubmit} className="space-y-5">
-      &lt;FormField
+return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <FormField
         label="Category Name *"
         type="text"
         name="name"
@@ -91,13 +91,13 @@ const CategoryForm = ({ onSubmit, category, loading }) => {
         error={errors.name}
       />
 
-      &lt;div>
-        &lt;label className="block text-sm font-medium text-surface-700 mb-3">
+      <div>
+        <label className="block text-sm font-medium text-surface-700 mb-3">
           Category Color
-        &lt;/label>
-        &lt;div className="grid grid-cols-6 gap-2">
+        </label>
+        <div className="grid grid-cols-6 gap-2">
           {colorOptions.map(color => (
-            &lt;Button
+            <Button
               key={color}
               type="button"
               onClick={() => handleColorSelect(color)}
@@ -111,36 +111,36 @@ const CategoryForm = ({ onSubmit, category, loading }) => {
               whileTap={{ scale: 0.9 }}
             >
               {formData.color === color && (
-                &lt;ApperIcon name="Check" size={16} className="text-white mx-auto" />
+                <ApperIcon name="Check" size={16} className="text-white mx-auto" />
               )}
-            &lt;/Button>
+            </Button>
           ))}
-        &lt;/div>
+        </div>
 
-        &lt;div className="mt-3">
-          &lt;div className="flex items-center gap-2">
-            &lt;input
+        <div className="mt-3">
+          <div className="flex items-center gap-2">
+            <input
               type="color"
               value={formData.color}
               onChange={(e) => handleColorSelect(e.target.value)}
               className="w-8 h-8 rounded border border-surface-300 cursor-pointer"
             />
-            &lt;span className="text-sm text-surface-600">Custom color&lt;/span>
-          &lt;/div>
-        &lt;/div>
+            <span className="text-sm text-surface-600">Custom color</span>
+          </div>
+        </div>
 
-        &lt;div className="mt-3 p-3 rounded-lg bg-surface-50">
-          &lt;div className="flex items-center gap-2">
-            &lt;Dot color={formData.color} className="w-4 h-4" />
-            &lt;span className="text-sm text-surface-900">
+        <div className="mt-3 p-3 rounded-lg bg-surface-50">
+          <div className="flex items-center gap-2">
+            <Dot color={formData.color} className="w-4 h-4" />
+            <span className="text-sm text-surface-900">
               {formData.name || 'Category Name'}
-            &lt;/span>
-          &lt;/div>
-        &lt;/div>
-      &lt;/div>
+            </span>
+          </div>
+        </div>
+      </div>
 
-      &lt;div className="flex gap-3 pt-4">
-        &lt;Button
+      <div className="flex gap-3 pt-4">
+        <Button
           type="button"
           onClick={() => {
             setFormData({ name: '', color: '#0891b2' });
@@ -151,9 +151,9 @@ const CategoryForm = ({ onSubmit, category, loading }) => {
           whileTap={{ scale: 0.98 }}
         >
           Cancel
-        &lt;/Button>
+        </Button>
         
-        &lt;Button
+        <Button
           type="submit"
           disabled={loading}
           className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -161,16 +161,16 @@ const CategoryForm = ({ onSubmit, category, loading }) => {
           whileTap={{ scale: 0.98 }}
         >
           {loading ? (
-            &lt;div className="flex items-center justify-center gap-2">
-              &lt;LoadingSpinner />
-              &lt;span>Saving...&lt;/span>
-            &lt;/div>
+            <div className="flex items-center justify-center gap-2">
+              <LoadingSpinner />
+              <span>Saving...</span>
+            </div>
           ) : (
             category ? 'Update Category' : 'Create Category'
           )}
-        &lt;/Button>
-      &lt;/div>
-    &lt;/form>
+        </Button>
+      </div>
+    </form>
   );
 };
 

@@ -17,18 +17,18 @@ const CategoryModal = ({ isOpen, onClose, onSubmit, category }) => {
     }
   };
 
-  return (
-    &lt;Modal
+return (
+    <Modal
       isOpen={isOpen}
       onClose={onClose}
       title={category ? 'Edit Category' : 'Create New Category'}
     >
-      &lt;CategoryForm
+      <CategoryForm
         onSubmit={handleSubmit}
         category={category}
         loading={loading}
       />
-    &lt;/Modal>
+    </Modal>
   );
 };
 
